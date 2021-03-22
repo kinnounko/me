@@ -14,12 +14,22 @@
 
 
 <body>
+
+    <div id="nav-placeholder"></div>
+
+    <script>
+        $.get("nav.html", function(data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+
+
     <div id="leafletmap"></div>
 
     <style>
         #leafletmap {
             width: 100%;
-            height: 100%;
+            height: 80%;
         }
     </style>
     <script>
