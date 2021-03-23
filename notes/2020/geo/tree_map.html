@@ -110,7 +110,7 @@
         $.getJSON("/notes/2020/geo/trees.json", function(json) {
 
             for (i = 0; i < json.length; i++) {
-
+                addCircleMarker(json[i].lat, json[i].lon, 5, "#FF0000", "tree")
             }
         });
 
