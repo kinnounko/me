@@ -94,7 +94,7 @@ a:not([class]) {
 
 a,
 a:visited {
-    color: lightblue;
+    color: #6495ed;
 }
 
 a:focus {
