@@ -103,10 +103,14 @@
         // Dbar is the mean observed distance
 
 
+        //add calculation value to sessionstorage for caching
+        //        sessionStorage.setItem('key', 'value');
+        //        console.log(sessionStorage.getItem('key'));
+
         $.getJSON("/notes/2020/geo/trees.json", function(json) {
 
             for (i = 0; i < json.length; i++) {
-                addCircleMarker(json[i].lat, json[i].lon, 5, "#550000", "tree");
+
             }
         });
 
