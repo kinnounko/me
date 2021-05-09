@@ -151,7 +151,7 @@ kbd {
     font-size: 75%
 }
 
-table {
+table:not(.nostyle) {
     border-collapse: collapse;
     border-spacing: 0;
     width: auto;
