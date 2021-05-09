@@ -151,7 +151,7 @@ kbd {
     font-size: 75%
 }
 
-table:not(.nostyle) {
+table {
     border-collapse: collapse;
     border-spacing: 0;
     width: auto;
@@ -162,21 +162,21 @@ table:not(.nostyle) {
     counter-increment: caption
 }
 
-table:not(.nostyle) tr>th[scope='col'] {
+table tr>th[scope='col'] {
     border-bottom: 1.36px solid black
 }
 
-table:not(.nostyle) tr>th[scope='row'] {
+table tr>th[scope='row'] {
     border-right: 1.36px solid black
 }
 
-table:not(.nostyle)>tbody>tr:first-child>td,
-table:not(.nostyle)>tbody>tr:first-child>th {
+table>tbody>tr:first-child>td,
+table>tbody>tr:first-child>th {
     border-top: 1.36px solid black
 }
 
-table:not(.nostyle)>tbody>tr:last-child>td,
-table:not(.nostyle)>tbody>tr:last-child>th {
+table>tbody>tr:last-child>td,
+table>tbody>tr:last-child>th {
     border-bottom: 1.36px solid black
 }
 
