@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script type="text/javascript" src="https://raw.githubusercontent.com/iamsjy17/Plotta.js/master/dist/release/plotta.min.js"></script>
+<script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
 </script>
 
@@ -16,44 +16,27 @@
     <table class="nostyle">
         <tr>
             <td><input type="range" min="1" max="100" value="50" class="slider" id="myRange"><input type="number"
-                    min="1" max="100" value="50"></td>
-            <td><canvas id="canvas" width="700px" height="700px"
-                    style="width:700px; height:700px; border:1px solid #d3d3d3;"></canvas>
+                    min="1" max="100" value="50">
+            </td>
+            <td>
+                <div id="myFunction"></div>
             </td>
         </tr>
     </table>
-    <script>
-        const canvas = document.getElementById("canvas");
-        const plotta = new Plotta(canvas, {
-            linedatas: [
-                {
-                    id: "line1",
-                    type: "func",
-                    legend: "cos",
-                    color: "#55A8DE",
-                    visible: true,
-                    func: Math.cos,
-                    dotNum: 1000
-                }
-            ],
-            config: {
-                title: {
-                    location: "center",
-                    color: "#666666",
-                    text: "Plotta.js"
-                },
-                grid: {
-                    visible: true,
-                    color: "#888888"
-                },
-                border: {
-                    visible: true,
-                    color: "#DDDDDD",
-                    width: 1
-                }
+    <script id="jsbin-javascript">
+        var parameters = {
+            target: '#myFunction',
+            data: [{
+                fn: 'sin(x)',
+                color: 'red'
             }
-        });
+            ],
+            grid: true,
+            yAxis: { domain: [-1, 1] },
+            xAxis: { domain: [0, 2 * Math.PI] }
+        };
 
+        functionPlot(parameters);
     </script>
 </body>
 
