@@ -147,6 +147,9 @@
             test = "<br><img onerror='$(this).hide();' style='width:64px;height:64px;' src='https://raw.githubusercontent.com/kinnounko/notes/main/geography/ia/images/residential/"
             a = ""
             color = interpolateColor(RED, GREEN, coords_test.places[0].residential[i].quality / 84);
+
+            console.log(coords_test.places[0].residential[i].name + " " + color);
+
             for (let k = 1; k < 4; k++) {
                 a += test + coords_test.places[0].residential[i].name + "/" + (k) + ".jpg'</img></a>"
             }
@@ -158,6 +161,9 @@
             test = "<br><img onerror='$(this).hide();' style='width:64px;height:64px;' src='https://raw.githubusercontent.com/kinnounko/notes/main/geography/ia/images/tourist/"
             a = ""
             color = interpolateColor(RED, GREEN, coords_test.places[0].tourist[i].quality / 84);
+
+            console.log(coords_test.places[0].tourist[i].name + " " + color);
+
             for (let k = 1; k < 4; k++) {
                 a += test + coords_test.places[0].tourist[i].name + "/" + (k) + ".jpg'</img></a>"
             }
