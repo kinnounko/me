@@ -12,51 +12,113 @@
 </head>
 
 <body>
-    <h2>merch model for marketing</h2>
+    <h2>merch model</h2>
     <table class="nostyle">
         <tr>
-            <td><input type="range" min="1" max="10" value="5" class="slider" id="myRange">
-                <input type="number" min="1" max="10" value="5" id="tbox">
+            <td>
+                <p>how many are sold?</p><input type="range" min="0" max="100" value="5" class="slider" id="Mrange">
+                <input type="number" min="0" max="100" value="5" id="Mbox">
+            </td>
+            <td>
+                <div id="myFunction"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p>how much do we sell them at? </p><input type="range" min="0" max="100" value="5" class="slider"
+                    id="Nrange">
+                <input type="number" min="0" max="100" value="5" id="Nbox">
+            </td>
+            <td>
+                <div id="myFunction"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p>how many are given away? </p><input type="range" min="0" max="100" value="5" class="slider"
+                    id="Lrange">
+                <input type="number" min="0" max="100" value="5" id="Lbox">
             </td>
             <td>
                 <div id="myFunction"></div>
             </td>
         </tr>
     </table>
+    <div id="varinfo"></div>
     <script id="jsbin-javascript">
-        a = 1;
-        b = 2;
-        c = 1;
+        var M = 1;
+        var N = 1;
+        var L = 1;
 
         var parameters = {
             target: '#myFunction',
             data: [{
-                fn: 'x^2+2x+2',
+                fn: parseInt(M) + parseInt(N) + 'x - ' + M * L,
                 color: 'red'
             }
             ],
             grid: true,
-            yAxis: { domain: [-10, 10] },
-            xAxis: { domain: [-10, 10] }
+            yAxis: { label: "Total cost", domain: [-10, 10] },
+            xAxis: { label: "Cost per shirt (for us)", domain: [0, 10] }
         };
-
         functionPlot(parameters);
 
-        document.getElementById("myRange").oninput = function () {
+
+        function updateParams() {
             parameters.data[0] = {
-                fn: this.value + 'x^2+2x+2'
+                fn: parseInt(M) + parseInt(N) + 'x - ' + M * L
             }
-            document.getElementById("tbox").value = this.value
             functionPlot(parameters);
+            document.getElementById("varinfo").innerText = "meow";
         }
 
-        document.getElementById("tbox").oninput = function () {
-            parameters.data[0] = {
-                fn: this.value + 'x^2+2x+2'
-            }
-            document.getElementById("myRange").value = this.value
-            functionPlot(parameters);
+
+
+        // var M 
+        document.getElementById("Mrange").oninput = function () {
+            document.getElementById("Mbox").value = this.value;
+            M = this.value;
+            updateParams();
         }
+
+        document.getElementById("Mbox").oninput = function () {
+            document.getElementById("Mrange").value = this.value
+            M = this.value;
+            updateParams();
+        }
+        // 
+
+        // var N 
+        document.getElementById("Nrange").oninput = function () {
+            document.getElementById("Nbox").value = this.value;
+            N = this.value;
+            updateParams();
+        }
+
+        document.getElementById("Nbox").oninput = function () {
+            document.getElementById("Nrange").value = this.value
+            N = this.value;
+            updateParams();
+        }
+        //
+
+        // var L
+        document.getElementById("Lrange").oninput = function () {
+            document.getElementById("Lbox").value = this.value;
+            L = this.value;
+            updateParams();
+        }
+
+        document.getElementById("Lbox").oninput = function () {
+            document.getElementById("Lrange").value = this.value
+            L = this.value;
+            updateParams();
+        }
+        //
+
+
 
     </script>
 </body>
