@@ -6,6 +6,10 @@
 </script>
 
 <style>
+    .borderbox {
+        border: 2px black;
+    }
+
     @import url("/style.css");
 </style>
 
@@ -16,37 +20,33 @@
     <table class="nostyle">
         <tr>
             <td>
-                <p>how many are sold?</p><input type="range" min="0" max="100" value="5" class="slider" id="Mrange">
-                <input type="number" min="0" max="100" value="5" id="Mbox">
+                <div class="borderbox">
+                    <p>how many are sold?</p><input type="range" min="0" max="100" value="5" class="slider" id="Mrange">
+                    <input type="number" min="0" max="100" value="5" id="Mbox">
+                </div>
+
+                <div class="borderbox">
+                    <p>how many are given away? </p><input type="range" min="0" max="100" value="5" class="slider"
+                        id="Lrange">
+                    <input type="number" min="0" max="100" value="5" id="Lbox">
+                </div>
+
+                <div class="borderbox">
+                    <p>how much do we sell them at? </p><input type="range" min="0" max="100" value="5" class="slider"
+                        id="Nrange">
+                    <input type="number" min="0" max="100" value="5" id="Nbox">
+                </div>
             </td>
             <td>
                 <div id="myFunction"></div>
             </td>
         </tr>
 
-        <tr>
-            <td>
-                <p>how much do we sell them at? </p><input type="range" min="0" max="100" value="5" class="slider"
-                    id="Nrange">
-                <input type="number" min="0" max="100" value="5" id="Nbox">
-            </td>
-            <td>
-                <div id="myFunction"></div>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <p>how many are given away? </p><input type="range" min="0" max="100" value="5" class="slider"
-                    id="Lrange">
-                <input type="number" min="0" max="100" value="5" id="Lbox">
-            </td>
-            <td>
-                <div id="myFunction"></div>
-            </td>
-        </tr>
     </table>
-    <div id="varinfo"></div>
+
+    <div>For value of x <input type="number" id="testbox"></div>
+    <div id="result"></div>
+
     <script id="jsbin-javascript">
         var M = 1;
         var N = 1;
@@ -71,7 +71,8 @@
                 fn: parseInt(M) + parseInt(N) + 'x - ' + M * L
             }
             functionPlot(parameters);
-            document.getElementById("varinfo").innerText = "meow";
+            document.getElementById("result").innerText = (parseInt(M) + parseInt(N)) * parseFloat(this.value) - (M * L)
+            //document.getElementById("varinfo").innerText = "meow";
         }
 
 
@@ -118,7 +119,9 @@
         }
         //
 
-
+        document.getElementById("testbox").oninput = function () {
+            document.getElementById("result").innerText = (parseInt(M) + parseInt(N)) * parseFloat(this.value) - (M * L)
+        }
 
     </script>
 </body>
