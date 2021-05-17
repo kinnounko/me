@@ -27,14 +27,14 @@
 
                 <div class="borderbox">
                     <p>how many are given away? </p><input type="range" min="0" max="100" value="5" class="slider"
-                        id="Lrange">
-                    <input type="number" min="0" max="100" value="5" id="Lbox">
+                        id="Nrange">
+                    <input type="number" min="0" max="100" value="5" id="Nbox">
                 </div>
 
                 <div class="borderbox">
                     <p>how much do we sell them at? </p><input type="range" min="0" max="100" value="5" class="slider"
-                        id="Nrange">
-                    <input type="number" min="0" max="100" value="5" id="Nbox">
+                        id="Lrange">
+                    <input type="number" min="0" max="100" value="5" id="Lbox">
                 </div>
             </td>
             <td>
@@ -55,7 +55,7 @@
         var parameters = {
             target: '#myFunction',
             data: [{
-                fn: -(parseInt(M) + parseInt(N)) + 'x - ' + M * L,
+                fn: -(parseInt(M) + parseInt(N)) + 'x + ' + M * L,
                 color: 'red'
             }
             ],
@@ -68,10 +68,10 @@
 
         function updateParams() {
             parameters.data[0] = {
-                fn: -(parseInt(M) + parseInt(N)) + 'x - ' + M * L
+                fn: -(parseInt(M) + parseInt(N)) + 'x + ' + M * L
             }
             functionPlot(parameters);
-            document.getElementById("result").innerText = (parseInt(M) + parseInt(N)) * parseFloat(this.value) - (M * L)
+            document.getElementById("result").innerText = -(parseFloat(M) + parseFloat(N)) * parseFloat(this.value) + (M * L)
             //document.getElementById("varinfo").innerText = "meow";
         }
 
@@ -120,7 +120,7 @@
         //
 
         document.getElementById("testbox").oninput = function () {
-            document.getElementById("result").innerText = (parseInt(M) + parseInt(N)) * parseFloat(this.value) - (M * L)
+            document.getElementById("result").innerText = -(parseFloat(M) + parseFloat(N)) * parseFloat(this.value) + (M * L)
         }
 
     </script>
