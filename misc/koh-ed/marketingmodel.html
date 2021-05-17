@@ -26,6 +26,9 @@
                 <p>how much do we sell them at? </p><input type="range" min="0" max="100" value="5" class="slider"
                     id="Lrange">
                 <input type="number" min="0" max="100" value="5" id="Lbox">
+
+                <p>taxes + additional costs</p>
+                <input type="number" min="0" max="100" value="0" id="Abox">
             </td>
             <td>
                 <div id="myFunction"></div>
@@ -41,6 +44,7 @@
         var M = 1;
         var N = 1;
         var L = 1;
+        var A = 0;
 
         var parameters = {
             target: '#myFunction',
@@ -58,10 +62,10 @@
 
         function updateParams() {
             parameters.data[0] = {
-                fn: -(parseInt(M) + parseInt(N)) + 'x + ' + M * L
+                fn: -(parseInt(M) + parseInt(N)) + 'x + ' + M * L 
             }
             functionPlot(parameters);
-            document.getElementById("result").innerText = -(parseFloat(M) + parseFloat(N)) * parseFloat(this.value) + (M * L)
+            document.getElementById("result").innerText = -(parseFloat(M) + parseFloat(N)) * parseFloat(this.value) + (M * L) - A
             //document.getElementById("varinfo").innerText = "meow";
         }
 
@@ -110,8 +114,14 @@
         //
 
         document.getElementById("testbox").oninput = function () {
-            document.getElementById("result").innerText = -(parseFloat(M) + parseFloat(N)) * parseFloat(this.value) + (M * L)
+            document.getElementById("result").innerText = -(parseFloat(M) + parseFloat(N)) * parseFloat(this.value) + (M * L) - A
         }
+
+        document.getElementById("Abox").oninput = function () {
+            A = this.value;
+            updateParams();
+        }
+        
 
     </script>
 </body>
