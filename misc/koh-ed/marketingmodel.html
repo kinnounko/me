@@ -44,7 +44,7 @@
 
     </table>
 
-    <div>For value of x <input type="number" id="testbox"></div>
+    <div>For value of x <input type="number" id="testbox"> we get a profit of </div>
     <div id="result"></div>
 
     <script id="jsbin-javascript">
@@ -55,7 +55,7 @@
         var parameters = {
             target: '#myFunction',
             data: [{
-                fn: parseInt(M) + parseInt(N) + 'x - ' + M * L,
+                fn: -(parseInt(M) + parseInt(N)) + 'x - ' + M * L,
                 color: 'red'
             }
             ],
@@ -68,7 +68,7 @@
 
         function updateParams() {
             parameters.data[0] = {
-                fn: parseInt(M) + parseInt(N) + 'x - ' + M * L
+                fn: -(parseInt(M) + parseInt(N)) + 'x - ' + M * L
             }
             functionPlot(parameters);
             document.getElementById("result").innerText = (parseInt(M) + parseInt(N)) * parseFloat(this.value) - (M * L)
